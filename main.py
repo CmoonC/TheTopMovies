@@ -121,7 +121,6 @@ def adding():
         title_movie = form.title.data
         response = requests.get(f"{URL}?query={title_movie}", headers=headers)
         print(response.status_code)
-        print(response.json()['results'][0])
         movies_to_choose = response.json()['results']
         return render_template('select.html', movies=movies_to_choose)
     return render_template('add.html', form=form)
